@@ -9,15 +9,17 @@ nest g app posts
 edit nest-cli.json
 
 ```
-npm run start:dev
 npm run start:dev users
 npm run start:dev posts
+npm run start:dev
 ```
 
 ```
 npm i @apollo/gateway @apollo/subgraph
 npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql
 ```
+
+Access the GraphQL http://localhost:3002/graphql
 
 ```
 in Headers:
