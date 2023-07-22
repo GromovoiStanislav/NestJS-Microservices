@@ -1,1 +1,1 @@
-## NestJS - microservice with gRPC Streaming
+## NestJS - microservice with gRPC

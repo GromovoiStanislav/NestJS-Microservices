@@ -7,4 +7,5 @@
 - 5 - NestJS GraphQL Microservices monorepo with Apollo Federation 2 (+Authentication)
 - 6 - NestJS Microservices monorepo with Redis
 - 7 - NestJS simple microservices with TCP, Redis, gRPC
-- 8 - NestJS microservice with gRPC Streaming
+- 8 - NestJS microservice with gRPC
+- 9 - NestJS microservice with gRPC Streaming
