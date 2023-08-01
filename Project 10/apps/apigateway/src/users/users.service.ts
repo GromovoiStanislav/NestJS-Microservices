@@ -1,14 +1,8 @@
 import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
-import {
-  CreateUserDto,
-  PaginationDto,
-  USERS_SERVICE_NAME,
-  UpdateUserDto,
-  UsersServiceClient
-} from "@app/common";
+import { CreateUserDto, PaginationDto, UpdateUserDto, USERS_SERVICE_NAME, UsersServiceClient } from "@app/common";
 import { AUTH_SERVICE } from "./constants";
 import { ClientGrpc } from "@nestjs/microservices";
-import { ReplaySubject } from "rxjs";
+import { ReplaySubject, toArray } from "rxjs";
 
 @Injectable()
 export class UsersService implements OnModuleInit {
@@ -68,5 +62,8 @@ export class UsersService implements OnModuleInit {
       console.log("Chunk", chunkNumber, users);
       chunkNumber += 1;
     });
+
+    //Другой вариант:
+    return this.usersService.queryUsers(users$).pipe(toArray())
   }
 }
