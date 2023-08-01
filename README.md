@@ -10,3 +10,4 @@
 - 8 - NestJS microservice with gRPC
 - 9 - NestJS microservice with gRPC Streaming
 - 10 - NestJS microservice with gRPC +Streaming
+- 11 - NestJS simple microservice with TCP transport
