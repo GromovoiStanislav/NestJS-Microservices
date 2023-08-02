@@ -1,4 +1,4 @@
-## NestJS microservice with gRPC +Streaming
+## NestJS monorepo microservice with gRPC +Streaming
 
 ```
 nest g app apigateway

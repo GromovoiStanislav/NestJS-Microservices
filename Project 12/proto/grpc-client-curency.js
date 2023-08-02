@@ -1,11 +1,11 @@
 const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
 const path = require("node:path");
-const protoFileName = "../proto/currency-converter.proto";
+const protoFileName = "currency-converter.proto";
 
-const packageDefinition = protoLoader.loadSync(
-  path.resolve(__dirname, protoFileName),
-  {});
+const packageDefinition = protoLoader.loadSync(protoFileName, {
+  includeDirs: [__dirname]
+})
 const proto = grpc.loadPackageDefinition(packageDefinition);
 
 const client = new proto.currencyConverter.CurrencyConverter("0.0.0.0:50053", grpc.credentials.createInsecure());
