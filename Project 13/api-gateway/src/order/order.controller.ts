@@ -1,9 +1,16 @@
-import { Controller, Inject, Post, OnModuleInit, UseGuards, Req } from '@nestjs/common';
+import { Controller, Inject, Post, OnModuleInit, UseGuards, Req, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import { CreateOrderResponse, OrderServiceClient, ORDER_SERVICE_NAME, CreateOrderRequest } from './proto/order.pb';
+import {
+  CreateOrderResponse,
+  OrderServiceClient,
+  ORDER_SERVICE_NAME,
+  CreateOrderRequest,
+  FindOneResponse
+} from "./proto/order.pb";
 import { AuthGuard } from '../auth/auth.guard';
 import { Request } from 'express';
+;
 
 @Controller('order')
 export class OrderController implements OnModuleInit {
@@ -26,6 +33,12 @@ export class OrderController implements OnModuleInit {
     const body: CreateOrderRequest = req.body;
     body.userId = <number>req['user'];
     return this.svc.createOrder(body);
+  }
+
+  @Get(":id")
+  @UseGuards(AuthGuard)
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {
+    return this.svc.findOne({ id });
   }
 
 }

@@ -5,7 +5,8 @@ import { Repository } from "typeorm";
 import { firstValueFrom } from "rxjs";
 import { Order } from "./entity/order.entity";
 import { FindOneResponse, DecreaseStockResponse, ProductServiceClient, PRODUCT_SERVICE_NAME } from "./proto/product.pb";
-import { CreateOrderRequest, CreateOrderResponse } from "./proto/order.pb";
+import { FindOneResponse as FindOneResponseOrder, CreateOrderRequest, CreateOrderResponse } from "./proto/order.pb";
+import { FindOneRequestDto } from "./dto/order.dto";
 
 @Injectable()
 export class OrderService implements OnModuleInit {
@@ -53,6 +54,26 @@ export class OrderService implements OnModuleInit {
     }
 
     return { id: order.id, error: null, status: HttpStatus.OK };
+  }
+
+
+  async findOne({ id }: FindOneRequestDto): Promise<FindOneResponseOrder> {
+    const order: Order = await this.repository.findOne({ where: { id } });
+    if (!order) {
+      return { data: null, error: ["Order not found"], status: HttpStatus.NOT_FOUND };
+    }
+
+    const product: FindOneResponse = await firstValueFrom(this.productSvc.findOne({ id: order.productId }));
+
+
+    const res = {
+      id: order.id,
+      product: product.data.name,
+      quantity: order.quantity,
+      userId: order.userId
+    };
+
+    return { data: res, error: null, status: HttpStatus.OK };
   }
 
 }

@@ -1,5 +1,5 @@
 import { IsNumber, Min } from "class-validator";
-import { CreateOrderRequest } from "../proto/order.pb";
+import { CreateOrderRequest, FindOneRequest } from "../proto/order.pb";
 
 export class CreateOrderRequestDto implements CreateOrderRequest {
   @IsNumber()
@@ -11,4 +11,9 @@ export class CreateOrderRequestDto implements CreateOrderRequest {
 
   @IsNumber()
   userId: number;
+}
+
+export class FindOneRequestDto implements FindOneRequest {
+  @IsNumber({ allowInfinity: false, allowNaN: false })
+  id: number;
 }

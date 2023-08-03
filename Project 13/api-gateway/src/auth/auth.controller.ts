@@ -39,10 +39,12 @@ export class AuthController implements OnModuleInit {
     return this.svc.login(body);
   }
 
+
   @Get("users")
   async getAll(): Promise<Observable<FindManyResponse>> {
     return this.svc.getAll({});
   }
+
 
   @Get("users/:id")
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {

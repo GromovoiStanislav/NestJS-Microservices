@@ -140,7 +140,7 @@
 			"response": []
 		},
 		{
-			"name": "product/:id",
+			"name": "order/:id",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -155,15 +155,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/product/1",
+					"raw": "http://localhost:3000/order/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"product",
-						"1"
+						"order",
+						"5"
 					]
 				}
 			},

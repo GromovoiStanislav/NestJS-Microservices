@@ -18,6 +18,28 @@ export interface CreateOrderResponse {
 }
 
 
+export interface FindOneData {
+  id: number;
+  product: string;
+  quantity: number;
+  userId: number;
+}
+
+
+export interface FindOneRequest {
+  id: number;
+}
+
+
+export interface FindOneResponse {
+  status: number;
+  error: string[];
+  data: FindOneData | undefined;
+}
+
+
 export interface OrderServiceClient {
   createOrder(request: CreateOrderRequest): Observable<CreateOrderResponse>;
+
+  findOne(request: FindOneRequest): Observable<FindOneResponse>;
 }
