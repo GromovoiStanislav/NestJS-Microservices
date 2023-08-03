@@ -8,7 +8,7 @@ import { ProductModule } from "./product/product.module";
       type: "postgres",
       host: "localhost",
       port: 5432,
-      database: "mydb",
+      database: "micro_product",
       username: "postgres",
       password: "root",
       autoLoadEntities: true,
