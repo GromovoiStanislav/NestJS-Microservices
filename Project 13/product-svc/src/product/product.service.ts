@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Product } from "./entity/product.entity";
 import { CreateProductRequestDto, DecreaseStockRequestDto, FindOneRequestDto } from "./dto/product.dto";
-import { CreateProductResponse, DecreaseStockResponse, FindOneResponse } from "./proto/product.pb";
+import { CreateProductResponse, DecreaseStockResponse, FindManyResponse, FindOneResponse } from "./proto/product.pb";
 import { StockDecreaseLog } from "./entity/stock-decrease-log.entity";
 
 
@@ -23,6 +23,12 @@ export class ProductService {
       return { data: null, error: ["Product not found"], status: HttpStatus.NOT_FOUND };
     }
     return { data: product, error: null, status: HttpStatus.OK };
+  }
+
+
+  async getAll(): Promise<FindManyResponse> {
+    const products: Product[] = await this.repository.find();
+    return { data: products, error: null, status: HttpStatus.OK };
   }
 
 

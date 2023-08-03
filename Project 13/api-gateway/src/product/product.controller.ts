@@ -6,8 +6,8 @@ import {
   ProductServiceClient,
   PRODUCT_SERVICE_NAME,
   CreateProductResponse,
-  CreateProductRequest,
-} from './proto/product.pb';
+  CreateProductRequest, FindManyResponse
+} from "./proto/product.pb";
 import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('product')
@@ -22,11 +22,20 @@ export class ProductController implements OnModuleInit {
     this.svc = this.client.getService<ProductServiceClient>(PRODUCT_SERVICE_NAME);
   }
 
+
   @Post()
   @UseGuards(AuthGuard)
   private async createProduct(@Body() body: CreateProductRequest): Promise<Observable<CreateProductResponse>> {
     return this.svc.createProduct(body);
   }
+
+
+  @Get()
+  @UseGuards(AuthGuard)
+  private async getAll(): Promise<Observable<FindManyResponse>> {
+    return this.svc.getAll({});
+  }
+
 
   @Get(':id')
   @UseGuards(AuthGuard)

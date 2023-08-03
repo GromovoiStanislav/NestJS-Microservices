@@ -39,6 +39,13 @@ export interface FindOneResponse {
 }
 
 
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}
+
+
 export interface DecreaseStockRequest {
   id: number;
   orderId: number;
@@ -56,6 +63,8 @@ export interface ProductServiceClient {
   createProduct(request: CreateProductRequest): Observable<CreateProductResponse>;
 
   findOne(request: FindOneRequest): Observable<FindOneResponse>;
+
+  getAll(request: {}): Observable<FindManyResponse>;
 
   decreaseStock(request: DecreaseStockRequest): Observable<DecreaseStockResponse>;
 }

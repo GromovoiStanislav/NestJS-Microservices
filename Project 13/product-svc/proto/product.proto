@@ -5,8 +5,12 @@ package product;
 service ProductService {
   rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {}
   rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
+  rpc GetAll (Empty) returns (FindManyResponse) {}
   rpc DecreaseStock (DecreaseStockRequest) returns (DecreaseStockResponse) {}
 }
+
+message Empty {}
+
 
 // CreateProduct
 message CreateProductRequest {
@@ -31,6 +35,8 @@ message FindOneData {
   double price = 5;
 }
 
+
+
 message FindOneRequest {
   int32 id = 1;
 }
@@ -39,6 +45,12 @@ message FindOneResponse {
   int32 status = 1;
   repeated string error = 2;
   FindOneData data = 3;
+}
+
+message FindManyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated FindOneData data = 3;
 }
 
 // DecreaseStock
