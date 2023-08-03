@@ -2,9 +2,9 @@ import { HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { JwtService } from './jwt.service';
-import { RegisterRequestDto, LoginRequestDto, ValidateRequestDto } from '../dto/auth.dto';
+import { RegisterRequestDto, LoginRequestDto, ValidateRequestDto, FindOneRequestDto } from "../dto/auth.dto";
 import { Auth } from '../entity/auth.entity';
-import { FindManyResponse, LoginResponse, RegisterResponse, ValidateResponse } from "../proto/auth.pb";
+import { FindManyResponse, FindOneResponse, LoginResponse, RegisterResponse, ValidateResponse } from "../proto/auth.pb";
 
 @Injectable()
 export class AuthService {
@@ -61,5 +61,13 @@ export class AuthService {
     return { data: users, error: null, status: HttpStatus.OK };
   }
 
+
+  async findOne({ id }: FindOneRequestDto): Promise<FindOneResponse> {
+    const user: Auth = await this.repository.findOne({ where: { id } });
+    if (!user) {
+      return { data: null, error: ["User not found"], status: HttpStatus.NOT_FOUND };
+    }
+    return { data: user, error: null, status: HttpStatus.OK };
+  }
 
 }

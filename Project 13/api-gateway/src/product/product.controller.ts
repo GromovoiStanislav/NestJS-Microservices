@@ -6,7 +6,8 @@ import {
   ProductServiceClient,
   PRODUCT_SERVICE_NAME,
   CreateProductResponse,
-  CreateProductRequest, FindManyResponse
+  CreateProductRequest,
+  FindManyResponse
 } from "./proto/product.pb";
 import { AuthGuard } from '../auth/auth.guard';
 

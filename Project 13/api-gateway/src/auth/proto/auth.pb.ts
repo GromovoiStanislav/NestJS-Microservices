@@ -73,4 +73,6 @@ export interface AuthServiceClient {
   validate(request: ValidateRequest): Observable<ValidateResponse>;
 
   getAll(request: {}): Observable<FindManyResponse>;
+
+  findOne(request: FindOneRequest): Observable<FindOneResponse>;
 }

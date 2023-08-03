@@ -1,5 +1,5 @@
-import { IsEmail, IsString, MinLength } from "class-validator";
-import { LoginRequest, RegisterRequest, ValidateRequest } from "../proto/auth.pb";
+import { IsEmail, IsNumber, IsString, MinLength } from "class-validator";
+import { FindOneRequest, LoginRequest, RegisterRequest, ValidateRequest } from "../proto/auth.pb";
 
 export class LoginRequestDto implements LoginRequest {
   @IsEmail()
@@ -21,4 +21,9 @@ export class RegisterRequestDto implements RegisterRequest {
 export class ValidateRequestDto implements ValidateRequest {
   @IsString()
   token: string;
+}
+
+export class FindOneRequestDto implements FindOneRequest {
+  @IsNumber({ allowInfinity: false, allowNaN: false })
+  id: number;
 }
