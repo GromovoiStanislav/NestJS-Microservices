@@ -38,6 +38,13 @@ export interface FindOneResponse {
 }
 
 
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}
+
+
 export interface DecreaseStockRequest {
   id: number;
   orderId: number;
