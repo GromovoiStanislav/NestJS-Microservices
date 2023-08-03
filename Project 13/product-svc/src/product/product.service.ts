@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Product } from "./entity/product.entity";
 import { CreateProductRequestDto, DecreaseStockRequestDto, FindOneRequestDto } from "./dto/product.dto";
-import { CreateProductResponse, DecreaseStockResponse, FindOneResponse } from "./product.pb";
+import { CreateProductResponse, DecreaseStockResponse, FindOneResponse } from "./proto/product.pb";
 import { StockDecreaseLog } from "./entity/stock-decrease-log.entity";
 
 
@@ -37,7 +37,7 @@ export class ProductService {
   }
 
 
-  async decreaseStock({ id, orderId }: DecreaseStockRequestDto): Promise<DecreaseStockResponse> {
+  async decreaseStock({ id, orderId, quantity }: DecreaseStockRequestDto): Promise<DecreaseStockResponse> {
     const product: Product = await this.repository.findOne({ where: { id }, select: ["id", "stock"] });
 
     if (!product) {
@@ -53,7 +53,7 @@ export class ProductService {
       return { error: ["Stock already decreased"], status: HttpStatus.CONFLICT };
     }
 
-    await this.repository.update(product.id, { stock: product.stock - 1 });
+    await this.repository.update(product.id, { stock: product.stock - quantity });
     await this.decreaseLogRepository.insert({ product, orderId });
 
     return { error: null, status: HttpStatus.OK };

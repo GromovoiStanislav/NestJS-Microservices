@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { CreateProductRequest, DecreaseStockRequest, FindOneRequest } from "../product.pb";
+import { CreateProductRequest, DecreaseStockRequest, FindOneRequest } from "../proto/product.pb";
 
 export class FindOneRequestDto implements FindOneRequest {
   @IsNumber({ allowInfinity: false, allowNaN: false })
@@ -28,4 +28,7 @@ export class DecreaseStockRequestDto implements DecreaseStockRequest {
 
   @IsNumber({ allowInfinity: false, allowNaN: false })
   orderId: number;
+
+  @IsNumber({ allowInfinity: false, allowNaN: false })
+  quantity: number;
 }

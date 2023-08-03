@@ -8,6 +8,9 @@ export class Order extends BaseEntity {
   @Column({ type: "decimal", precision: 12, scale: 2 })
   price!: number;
 
+  @Column({ type: "integer" })
+  quantity!: number;
+
   /*
    * Relation IDs
    */

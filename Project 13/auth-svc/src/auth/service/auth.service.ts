@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { JwtService } from './jwt.service';
 import { RegisterRequestDto, LoginRequestDto, ValidateRequestDto } from '../dto/auth.dto';
 import { Auth } from '../entity/auth.entity';
-import { LoginResponse, RegisterResponse, ValidateResponse } from '../auth.pb';
+import { LoginResponse, RegisterResponse, ValidateResponse } from '../proto/auth.pb';
 
 @Injectable()
 export class AuthService {

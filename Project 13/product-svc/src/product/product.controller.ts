@@ -1,7 +1,7 @@
 import { Controller, Inject } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { CreateProductRequestDto, FindOneRequestDto, DecreaseStockRequestDto } from './dto/product.dto';
-import { CreateProductResponse, FindOneResponse, PRODUCT_SERVICE_NAME, DecreaseStockResponse } from './product.pb';
+import { CreateProductResponse, FindOneResponse, PRODUCT_SERVICE_NAME, DecreaseStockResponse } from './proto/product.pb';
 import { ProductService } from './product.service';
 
 @Controller()
