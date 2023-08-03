@@ -12,3 +12,4 @@
 - 10 - NestJS monorepo microservice with gRPC +Streaming
 - 11 - NestJS simple microservice with TCP transport
 - 12 - NestJS monorepo microservices infrastructure with gPRC
+- 13 - NestJS microservices with gRPC, API Gateway, and Authentication
