@@ -6,10 +6,24 @@ service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
   rpc Login (LoginRequest) returns (LoginResponse) {}
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
+  rpc GetAll (Empty) returns (FindManyResponse) {}
+}
+
+message Empty {}
+
+// Find
+message FindOneData {
+  int32 id = 1;
+  string email = 2;
+}
+
+message FindManyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated FindOneData data = 3;
 }
 
 // Register
-
 message RegisterRequest {
   string email = 1;
   string password = 2;
@@ -21,7 +35,6 @@ message RegisterResponse {
 }
 
 // Login
-
 message LoginRequest {
   string email = 1;
   string password = 2;
@@ -34,7 +47,6 @@ message LoginResponse {
 }
 
 // Validate
-
 message ValidateRequest {
   string token = 1;
 }

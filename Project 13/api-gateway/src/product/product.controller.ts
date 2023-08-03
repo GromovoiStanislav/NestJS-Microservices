@@ -25,21 +25,21 @@ export class ProductController implements OnModuleInit {
 
   @Post()
   @UseGuards(AuthGuard)
-  private async createProduct(@Body() body: CreateProductRequest): Promise<Observable<CreateProductResponse>> {
+  async createProduct(@Body() body: CreateProductRequest): Promise<Observable<CreateProductResponse>> {
     return this.svc.createProduct(body);
   }
 
 
   @Get()
   @UseGuards(AuthGuard)
-  private async getAll(): Promise<Observable<FindManyResponse>> {
+  async getAll(): Promise<Observable<FindManyResponse>> {
     return this.svc.getAll({});
   }
 
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  private async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {
     return this.svc.findOne({ id });
   }
 }

@@ -40,10 +40,37 @@ export interface ValidateResponse {
 }
 
 
+export interface FindOneData {
+  id: number;
+  email: string;
+}
+
+
+export interface FindOneRequest {
+  id: number;
+}
+
+
+export interface FindOneResponse {
+  status: number;
+  error: string[];
+  data: FindOneData | undefined;
+}
+
+
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}
+
+
 export interface AuthServiceClient {
   register(request: RegisterRequest): Observable<RegisterResponse>;
 
   login(request: LoginRequest): Observable<LoginResponse>;
 
   validate(request: ValidateRequest): Observable<ValidateResponse>;
+
+  getAll(request: {}): Observable<FindManyResponse>;
 }

@@ -1,7 +1,16 @@
-import { Body, Controller, Inject, OnModuleInit, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, OnModuleInit, Post } from "@nestjs/common";
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import { AuthServiceClient, RegisterResponse, RegisterRequest, AUTH_SERVICE_NAME, LoginRequest, LoginResponse } from './proto/auth.pb';
+import {
+  AuthServiceClient,
+  RegisterResponse,
+  RegisterRequest,
+  AUTH_SERVICE_NAME,
+  LoginRequest,
+  LoginResponse,
+  FindManyResponse
+} from "./proto/auth.pb";
+
 
 @Controller('auth')
 export class AuthController implements OnModuleInit {
@@ -27,5 +36,10 @@ export class AuthController implements OnModuleInit {
   async login(@Body() body: LoginRequest): Promise<Observable<LoginResponse>> {
     return this.svc.login(body);
   }
+
+@Get('users')
+async getAll(): Promise<Observable<FindManyResponse>> {
+  return this.svc.getAll({});
+}
 
 }

@@ -37,3 +37,27 @@ export interface ValidateResponse {
   error: string[];
   userId: number;
 }
+
+export interface FindOneData {
+  id: number;
+  email: string;
+}
+
+
+export interface FindOneRequest {
+  id: number;
+}
+
+
+export interface FindOneResponse {
+  status: number;
+  error: string[];
+  data: FindOneData | undefined;
+}
+
+
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}

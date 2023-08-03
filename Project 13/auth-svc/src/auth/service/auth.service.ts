@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { JwtService } from './jwt.service';
 import { RegisterRequestDto, LoginRequestDto, ValidateRequestDto } from '../dto/auth.dto';
 import { Auth } from '../entity/auth.entity';
-import { LoginResponse, RegisterResponse, ValidateResponse } from '../proto/auth.pb';
+import { FindManyResponse, LoginResponse, RegisterResponse, ValidateResponse } from "../proto/auth.pb";
 
 @Injectable()
 export class AuthService {
@@ -54,5 +54,12 @@ export class AuthService {
     }
     return { status: HttpStatus.OK, error: null, userId: decoded.id };
   }
+
+
+  async getAll(): Promise<FindManyResponse> {
+    const users: Auth[] = await this.repository.find();
+    return { data: users, error: null, status: HttpStatus.OK };
+  }
+
 
 }
