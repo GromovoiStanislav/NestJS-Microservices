@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { JwtService as Jwt } from '@nestjs/jwt';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Auth } from '../entity/auth.entity';
-import * as bcrypt from 'bcryptjs';
+import { Injectable } from "@nestjs/common";
+import { JwtService as Jwt } from "@nestjs/jwt";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { Auth } from "../entity/auth.entity";
+import * as bcrypt from "bcryptjs";
 
 @Injectable()
 export class JwtService {
@@ -26,7 +26,7 @@ export class JwtService {
 
   // Get User by User ID we get from decode()
   public async validateUser(decoded: any): Promise<Auth> {
-    return this.repository.findOne(decoded.id);
+    return this.repository.findOne({ where: { id: decoded.id } });
   }
 
 
@@ -53,6 +53,7 @@ export class JwtService {
   public async verify(token: string): Promise<any> {
     try {
       return this.jwt.verify(token);
-    } catch (err) {}
+    } catch (err) {
+    }
   }
 }

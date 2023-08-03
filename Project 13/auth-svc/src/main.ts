@@ -1,7 +1,7 @@
 import { INestMicroservice, ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { Transport } from "@nestjs/microservices";
-import { join } from "path";
+import { join } from "node:path";
 import { AppModule } from "./app.module";
 import { HttpExceptionFilter } from "./auth/filter/http-exception.filter";
 import { AUTH_PACKAGE_NAME } from "./auth/auth.pb";
