@@ -3,6 +3,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from "node:path";
 import { ORDER_SERVICE_NAME, ORDER_PACKAGE_NAME } from './proto/order.pb';
 import { OrderController } from './order.controller';
+import { AuthModule } from "../auth/auth.module";
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { OrderController } from './order.controller';
         },
       },
     ]),
+    AuthModule
   ],
   controllers: [OrderController],
 })

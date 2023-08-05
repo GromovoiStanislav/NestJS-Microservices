@@ -1,6 +1,6 @@
 import { Controller, Inject, Post, OnModuleInit, UseGuards, Req, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { ClientGrpc } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from "rxjs";
 import {
   CreateOrderResponse,
   OrderServiceClient,
@@ -10,6 +10,7 @@ import {
 } from "./proto/order.pb";
 import { AuthGuard } from '../auth/auth.guard';
 import { Request } from 'express';
+import { AuthService } from "../auth/auth.service";
 
 
 @Controller('order')
@@ -17,9 +18,12 @@ export class OrderController implements OnModuleInit {
 
   private svc: OrderServiceClient;
 
-
   @Inject(ORDER_SERVICE_NAME)
   private readonly client: ClientGrpc;
+
+
+  @Inject(AuthService)
+  private readonly authService: AuthService;
 
 
   onModuleInit(): void {
@@ -37,8 +41,11 @@ export class OrderController implements OnModuleInit {
 
   @Get(":id")
   @UseGuards(AuthGuard)
-  async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {
-    return this.svc.findOne({ id });
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const order: FindOneResponse = await firstValueFrom( this.svc.findOne({ id }));
+    const user = await this.authService.findOne(order.data.userId)
+    order.data.user = user.email
+    return order
   }
 
 

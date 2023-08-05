@@ -76,9 +76,9 @@ export class OrderService implements OnModuleInit {
 
     const product: FindOneResponse = await firstValueFrom(this.productSvc.findOne({ id: order.productId }));
 
-
     const res = {
       id: order.id,
+      productId: order.productId,
       product: product.data.name,
       quantity: order.quantity,
       userId: order.userId
@@ -98,6 +98,7 @@ export class OrderService implements OnModuleInit {
       const product = products.data.find(product=>product.id===order.productId)
       return {
         id: order.id,
+        productId: order.productId,
         product: product.name,
         quantity: order.quantity,
         userId: order.userId

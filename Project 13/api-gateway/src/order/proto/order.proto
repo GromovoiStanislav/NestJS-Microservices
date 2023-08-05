@@ -14,9 +14,10 @@ message Empty {}
 // Find
 message FindOneData {
   int32 id = 1;
-  string product = 2;
-  int32 quantity = 3;
-  int32 userId = 4;
+  int32 productId = 2;
+  string product = 3;
+  int32 quantity = 4;
+  int32 userId = 5;
 }
 
 message FindOneRequest {

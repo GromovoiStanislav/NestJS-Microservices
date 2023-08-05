@@ -20,9 +20,11 @@ export interface CreateOrderResponse {
 
 export interface FindOneData {
   id: number;
+  productId: number;
   product: string;
   quantity: number;
   userId: number;
+  user: string;
 }
 
 
