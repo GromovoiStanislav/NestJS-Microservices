@@ -34,6 +34,11 @@ export interface FindOneRequest {
 }
 
 
+export interface FindManyRequest {
+  ids: number[];
+}
+
+
 export interface FindOneResponse {
   status: number;
   error: string[];
@@ -65,6 +70,8 @@ export interface ProductServiceClient {
   createProduct(request: CreateProductRequest): Observable<CreateProductResponse>;
 
   findOne(request: FindOneRequest): Observable<FindOneResponse>;
+
+  findMany(request: FindManyRequest): Observable<FindManyResponse>;
 
   getAll(request: {}): Observable<FindManyResponse>;
 

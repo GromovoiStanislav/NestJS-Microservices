@@ -1,10 +1,18 @@
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { CreateProductRequest, DecreaseStockRequest, FindOneRequest } from "../proto/product.pb";
+import { IsArray, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { CreateProductRequest, DecreaseStockRequest, FindManyRequest, FindOneRequest } from "../proto/product.pb";
 
 export class FindOneRequestDto implements FindOneRequest {
   @IsNumber({ allowInfinity: false, allowNaN: false })
   id: number;
 }
+
+
+export class FindManyRequestDto implements FindManyRequest {
+  @IsArray()
+  @IsNumber({ allowInfinity: false, allowNaN: false }, { each: true })
+  ids: number[];
+}
+
 
 export class CreateProductRequestDto implements CreateProductRequest {
   @IsString()

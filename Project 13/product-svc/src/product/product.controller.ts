@@ -1,6 +1,11 @@
 import { Controller, Inject } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { CreateProductRequestDto, FindOneRequestDto, DecreaseStockRequestDto } from './dto/product.dto';
+import {
+  CreateProductRequestDto,
+  FindOneRequestDto,
+  DecreaseStockRequestDto,
+  FindManyRequestDto
+} from "./dto/product.dto";
 import {
   CreateProductResponse,
   FindOneResponse,
@@ -9,6 +14,7 @@ import {
   FindManyResponse
 } from "./proto/product.pb";
 import { ProductService } from './product.service';
+
 
 @Controller()
 export class ProductController {
@@ -26,6 +32,12 @@ export class ProductController {
   @GrpcMethod(PRODUCT_SERVICE_NAME, 'FindOne')
   private findOne(payload: FindOneRequestDto): Promise<FindOneResponse> {
     return this.service.findOne(payload);
+  }
+
+
+  @GrpcMethod(PRODUCT_SERVICE_NAME, 'FindMany')
+  private findMany(payload: FindManyRequestDto): Promise<FindManyResponse> {
+    return this.service.findMany(payload);
   }
 
 

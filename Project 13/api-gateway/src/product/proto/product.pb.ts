@@ -1,7 +1,9 @@
 import { Observable } from "rxjs";
 
+
 export const PRODUCT_SERVICE_NAME = "ProductService";
 export const PRODUCT_PACKAGE_NAME = "product";
+
 
 export interface CreateProductRequest {
   name: string;
@@ -29,6 +31,11 @@ export interface FindOneData {
 
 export interface FindOneRequest {
   id: number;
+}
+
+
+export interface FindManyRequest {
+  ids: number[];
 }
 
 
@@ -64,7 +71,10 @@ export interface ProductServiceClient {
 
   findOne(request: FindOneRequest): Observable<FindOneResponse>;
 
+  findMany(request: FindManyRequest): Observable<FindManyResponse>;
+
   getAll(request: {}): Observable<FindManyResponse>;
 
   decreaseStock(request: DecreaseStockRequest): Observable<DecreaseStockResponse>;
 }
+

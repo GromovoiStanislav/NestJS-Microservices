@@ -38,8 +38,17 @@ export interface FindOneResponse {
 }
 
 
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}
+
+
 export interface OrderServiceClient {
   createOrder(request: CreateOrderRequest): Observable<CreateOrderResponse>;
 
   findOne(request: FindOneRequest): Observable<FindOneResponse>;
+
+  getAll(request: {}): Observable<FindManyResponse>;
 }

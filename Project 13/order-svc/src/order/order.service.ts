@@ -4,8 +4,19 @@ import { ClientGrpc } from "@nestjs/microservices";
 import { Repository } from "typeorm";
 import { firstValueFrom } from "rxjs";
 import { Order } from "./entity/order.entity";
-import { FindOneResponse, DecreaseStockResponse, ProductServiceClient, PRODUCT_SERVICE_NAME } from "./proto/product.pb";
-import { FindOneResponse as FindOneResponseOrder, CreateOrderRequest, CreateOrderResponse } from "./proto/order.pb";
+import {
+  FindOneResponse,
+  DecreaseStockResponse,
+  ProductServiceClient,
+  PRODUCT_SERVICE_NAME,
+  FindManyResponse
+} from "./proto/product.pb";
+import {
+  FindOneResponse as FindOneResponseOrder,
+  CreateOrderRequest,
+  CreateOrderResponse,
+  FindManyResponse as FindManyResponseOrder
+} from "./proto/order.pb";
 import { FindOneRequestDto } from "./dto/order.dto";
 
 @Injectable()
@@ -72,6 +83,27 @@ export class OrderService implements OnModuleInit {
       quantity: order.quantity,
       userId: order.userId
     };
+
+    return { data: res, error: null, status: HttpStatus.OK };
+  }
+
+
+  async getAll(): Promise<FindManyResponseOrder> {
+    const orders: Order[] = await this.repository.find();
+
+    const productIds = orders.map(order => order.productId);
+    const products: FindManyResponse = await firstValueFrom(this.productSvc.findMany({ ids: productIds }));
+
+    const res = orders.map(order => {
+      const product = products.data.find(product=>product.id===order.productId)
+      return {
+        id: order.id,
+        product: product.name,
+        quantity: order.quantity,
+        userId: order.userId
+      };
+    });
+
 
     return { data: res, error: null, status: HttpStatus.OK };
   }

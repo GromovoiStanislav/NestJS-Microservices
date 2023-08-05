@@ -170,7 +170,7 @@
 			"response": []
 		},
 		{
-			"name": "product",
+			"name": "order",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -185,21 +185,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/product",
+					"raw": "http://localhost:3000/order",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"product"
+						"order"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "product Copy",
+			"name": "product",
 			"request": {
 				"auth": {
 					"type": "bearer",

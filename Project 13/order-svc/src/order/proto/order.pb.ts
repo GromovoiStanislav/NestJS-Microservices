@@ -24,6 +24,13 @@ export interface FindOneData {
 }
 
 
+export interface FindManyResponse {
+  status: number;
+  error: string[];
+  data: FindOneData[];
+}
+
+
 export interface FindOneRequest {
   id: number;
 }

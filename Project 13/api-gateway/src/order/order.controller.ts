@@ -6,11 +6,11 @@ import {
   OrderServiceClient,
   ORDER_SERVICE_NAME,
   CreateOrderRequest,
-  FindOneResponse
+  FindOneResponse, FindManyResponse
 } from "./proto/order.pb";
 import { AuthGuard } from '../auth/auth.guard';
 import { Request } from 'express';
-;
+
 
 @Controller('order')
 export class OrderController implements OnModuleInit {
@@ -39,6 +39,13 @@ export class OrderController implements OnModuleInit {
   @UseGuards(AuthGuard)
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Observable<FindOneResponse>> {
     return this.svc.findOne({ id });
+  }
+
+
+  @Get()
+  @UseGuards(AuthGuard)
+  async getAll(): Promise<Observable<FindManyResponse>> {
+    return this.svc.getAll({});
   }
 
 }

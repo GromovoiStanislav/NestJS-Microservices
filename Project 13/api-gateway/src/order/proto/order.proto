@@ -5,7 +5,11 @@ package order;
 service OrderService {
   rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse) {}
   rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
+  rpc GetAll (Empty) returns (FindManyResponse) {}
 }
+
+message Empty {}
+
 
 // Find
 message FindOneData {
@@ -23,6 +27,12 @@ message FindOneResponse {
   int32 status = 1;
   repeated string error = 2;
   FindOneData data = 3;
+}
+
+message FindManyResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated FindOneData data = 3;
 }
 
 // Create
