@@ -1,7 +1,14 @@
 import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
-import { ClientGrpc } from '@nestjs/microservices';
-import { firstValueFrom } from 'rxjs';
-import { AuthServiceClient, AUTH_SERVICE_NAME, ValidateResponse, FindOneData } from "./proto/auth.pb";
+import { ClientGrpc } from "@nestjs/microservices";
+import { firstValueFrom } from "rxjs";
+import {
+  AUTH_SERVICE_NAME,
+  AuthServiceClient,
+  FindManyResponse,
+  FindOneResponse,
+  ValidateResponse
+} from "./proto/auth.pb";
+
 
 @Injectable()
 export class AuthService implements OnModuleInit {
@@ -18,8 +25,12 @@ export class AuthService implements OnModuleInit {
     return firstValueFrom(this.svc.validate({ token }));
   }
 
-  async findOne(id: number): Promise<FindOneData> {
-    return (await firstValueFrom(this.svc.findOne({ id }))).data;
+  async findOne(id: number): Promise<FindOneResponse> {
+    return await firstValueFrom(this.svc.findOne({ id }))
+  }
+
+  async findMany(ids: number[]): Promise<FindManyResponse> {
+    return await firstValueFrom(this.svc.findMany({ ids }));
   }
 
 }

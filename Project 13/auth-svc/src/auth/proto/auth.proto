@@ -8,6 +8,7 @@ service AuthService {
   rpc Validate (ValidateRequest) returns (ValidateResponse) {}
   rpc GetAll (Empty) returns (FindManyResponse) {}
   rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
+  rpc FindMany (FindManyRequest) returns (FindManyResponse) {}
 }
 
 message Empty {}
@@ -20,6 +21,10 @@ message FindOneData {
 
 message FindOneRequest {
   int32 id = 1;
+}
+
+message FindManyRequest {
+  repeated int32 ids = 1;
 }
 
 message FindOneResponse {

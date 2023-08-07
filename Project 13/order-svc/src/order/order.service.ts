@@ -9,7 +9,7 @@ import {
   DecreaseStockResponse,
   ProductServiceClient,
   PRODUCT_SERVICE_NAME,
-  FindManyResponse
+  FindManyResponse, FindOneData
 } from "./proto/product.pb";
 import {
   FindOneResponse as FindOneResponseOrder,
@@ -92,19 +92,17 @@ export class OrderService implements OnModuleInit {
     const orders: Order[] = await this.repository.find();
 
     const productIds = orders.map(order => order.productId);
-    const products: FindManyResponse = await firstValueFrom(this.productSvc.findMany({ ids: productIds }));
+    const products: FindOneData[] = (await firstValueFrom(this.productSvc.findMany({ ids: productIds }))).data;
 
-    const res = orders.map(order => {
-      const product = products.data.find(product=>product.id===order.productId)
-      return {
+    const res = orders.map(order => (
+      {
         id: order.id,
         productId: order.productId,
-        product: product.name,
+        product: products.find(product => product.id === order.productId).name,
         quantity: order.quantity,
         userId: order.userId
-      };
-    });
-
+      }
+    ));
 
     return { data: res, error: null, status: HttpStatus.OK };
   }

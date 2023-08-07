@@ -16,7 +16,7 @@ import { PRODUCT_SERVICE_NAME, PRODUCT_PACKAGE_NAME } from "./proto/product.pb";
         options: {
           url: "0.0.0.0:50053",
           package: PRODUCT_PACKAGE_NAME,
-          protoPath: join(__dirname, "../../proto/product.proto")
+          protoPath: join(__dirname, "./proto/product.proto")
         }
       }
     ]),

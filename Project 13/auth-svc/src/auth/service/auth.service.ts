@@ -1,8 +1,14 @@
 import { HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { In, Repository } from "typeorm";
 import { JwtService } from './jwt.service';
-import { RegisterRequestDto, LoginRequestDto, ValidateRequestDto, FindOneRequestDto } from "../dto/auth.dto";
+import {
+  RegisterRequestDto,
+  LoginRequestDto,
+  ValidateRequestDto,
+  FindOneRequestDto,
+  FindManyRequestDto
+} from "../dto/auth.dto";
 import { Auth } from '../entity/auth.entity';
 import { FindManyResponse, FindOneResponse, LoginResponse, RegisterResponse, ValidateResponse } from "../proto/auth.pb";
 
@@ -68,6 +74,12 @@ export class AuthService {
       return { data: null, error: ["User not found"], status: HttpStatus.NOT_FOUND };
     }
     return { data: user, error: null, status: HttpStatus.OK };
+  }
+
+
+  async findMany({ ids }: FindManyRequestDto): Promise<FindManyResponse> {
+    const users: Auth[] = await this.repository.findBy({ id: In(ids) });
+    return { data: users, error: null, status: HttpStatus.OK };
   }
 
 }

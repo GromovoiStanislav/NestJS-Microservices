@@ -48,6 +48,9 @@ export interface FindOneRequest {
   id: number;
 }
 
+export interface FindManyRequest {
+  ids: number[];
+}
 
 export interface FindOneResponse {
   status: number;

@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs';
 
+
 export const AUTH_PACKAGE_NAME = 'auth';
 export const AUTH_SERVICE_NAME = 'AuthService';
 
@@ -50,6 +51,13 @@ export interface FindOneRequest {
   id: number;
 }
 
+export interface FindManyRequest {
+  ids: number[];
+}
+
+export interface FindManyRequest {
+  ids: number[];
+}
 
 export interface FindOneResponse {
   status: number;
@@ -75,4 +83,8 @@ export interface AuthServiceClient {
   getAll(request: {}): Observable<FindManyResponse>;
 
   findOne(request: FindOneRequest): Observable<FindOneResponse>;
+
+  findMany(request: FindManyRequest): Observable<FindManyResponse>;
+
+  findMany(request: FindManyRequest): Observable<FindManyResponse>;
 }
