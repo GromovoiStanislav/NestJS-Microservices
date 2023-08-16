@@ -1,14 +1,14 @@
-import { IsString, IsNotEmpty, IsEmpty } from "class-validator";
+import { IsString, IsOptional, IsEmpty } from "class-validator";
 
-export class CreateProductDto {
-  @IsNotEmpty()
+export class UpdateProductDto {
+  @IsOptional()
   @IsString()
-  title: string;
+  title?: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  image: string;
+  image?: string;
 
   @IsEmpty()
-  likes: number;
+  likes?: number;
 }
