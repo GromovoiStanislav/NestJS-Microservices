@@ -14,3 +14,4 @@
 - 12 - NestJS monorepo microservices infrastructure with gPRC
 - 13 - NestJS microservices with gRPC, API Gateway, and Authentication
 - 14 - NestJS/Expres microservices Event-Driven Architecture with RabbitMQ
+- 15 - NestJS and NodeJS simple microservices with TCP transport

@@ -2,7 +2,7 @@
 
 - ticket service (http and microservice hybrid app)
 
-  - send a post request to http://localhost:4000/ticket
+  - send a post request to http://localhost:3000/ticket
   - it will send a message to payment service with a payload
 
   ```
