@@ -1,1 +1,1 @@
-## NestJS and NodeJS simple microservices with TCP transport
+## NestJS/NodeJS simple microservices with TCP transport
