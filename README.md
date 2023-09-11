@@ -16,3 +16,4 @@
 - 14 - NestJS/Expres microservices Event-Driven Architecture with RabbitMQ
 - 15 - NestJS/NodeJS simple microservices with TCP transport
 - 16 - NestJS microservices monorepo with tRPC
+- 17 - NestJS microservices with Kafka
