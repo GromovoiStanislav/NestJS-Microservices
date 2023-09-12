@@ -1,15 +1,13 @@
-import { Controller, Inject, OnModuleInit } from '@nestjs/common';
-import { ClientKafka, EventPattern } from '@nestjs/microservices';
+import { Controller } from '@nestjs/common';
+import { EventPattern } from '@nestjs/microservices';
 import { AppService } from './app.service';
 
 @Controller()
-export class AppController implements OnModuleInit {
+export class AppController {
+
   constructor(
     private readonly appService: AppService,
-    @Inject('AUTH_SERVICE') private readonly authClient: ClientKafka,
   ) {}
-
-
 
   @EventPattern('order_created') // topic
   handleOrderCreated(data: any) {
@@ -17,7 +15,4 @@ export class AppController implements OnModuleInit {
     this.appService.handleOrderCreated(data);
   }
 
-  onModuleInit() {
-    //this.authClient.subscribeToResponseOf('get_user');
-  }
 }
