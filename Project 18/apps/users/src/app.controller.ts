@@ -1,5 +1,5 @@
 import { Controller, Logger } from "@nestjs/common";
-import { EventPattern, MessagePattern, Payload } from "@nestjs/microservices";
+import { Ctx, EventPattern, KafkaContext, MessagePattern, Payload } from "@nestjs/microservices";
 import { AppService } from "./app.service";
 
 
@@ -16,8 +16,13 @@ export class AppController {
 
 
   @MessagePattern("GET_USERS") // "GET_USERS" topic
-  GET_USERS(@Payload() payload: any) {
+  GET_USERS(@Payload() payload: any, @Ctx() context: KafkaContext) {
     this.logger.log(payload);
+
+    console.log(`Topic: ${context.getTopic()}`);
+    console.log(`partition: ${context.getPartition()}`);
+    console.log(`originalMessage: ${context.getMessage()}`);
+    console.log(context.getMessage());
 
     return {
       message: payload.message,
@@ -27,13 +32,14 @@ export class AppController {
 
 
   @EventPattern("PRINT_USERS") //"PRINT_USERS" topic
-  Validate(@Payload() payload: any) {
+  Validate(@Payload() payload: any, @Ctx() context: KafkaContext) {
     this.logger.log(payload);
 
     console.log("PRINT_USERS",{
       message: payload.message,
       user: payload.user
     });
+
   }
 
 

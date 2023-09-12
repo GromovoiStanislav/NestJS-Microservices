@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Inject, Logger, OnModuleInit, Post } from "@nestjs/common";
-import { ClientProxy } from "@nestjs/microservices";
+import { ClientKafka } from "@nestjs/microservices";
 import { firstValueFrom } from "rxjs";
 import { AppService } from "./app.service";
 
@@ -8,7 +8,7 @@ export class AppController implements OnModuleInit {
 
   constructor(
     private readonly appService: AppService,
-    @Inject("USERS_SERVICE") private readonly userService: ClientProxy
+    @Inject("USERS_SERVICE") private readonly userService: ClientKafka
   ) {
   }
 

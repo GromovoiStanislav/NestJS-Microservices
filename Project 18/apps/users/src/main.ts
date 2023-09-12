@@ -17,12 +17,13 @@ async function bootstrap() {
           fromBeginning: true
         },
         consumer: {
-          groupId: 'users-consumer',
+          groupId: 'users-consumer',// users-consumer-server
         },
         producer: {
           createPartitioner: Partitioners.LegacyPartitioner // Используем старый разделитель
         },
         client: {
+          clientId: 'root',// users-server
           brokers: [KAFKA_HOSTNAME],
           ssl: true,
           sasl: {
@@ -30,7 +31,7 @@ async function bootstrap() {
             username: KAFKA_USERNAME,
             password: KAFKA_PASSWORD
           }
-        }
+        },
       }
     }
   );

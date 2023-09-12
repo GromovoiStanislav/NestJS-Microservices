@@ -17,6 +17,7 @@ import { Partitioners } from "kafkajs";
           transport: Transport.KAFKA,
           options: {
             client: {
+              clientId: 'root',// root-client
               brokers: [configService.get<string>("KAFKA_HOSTNAME")],
               ssl: true,
               sasl: {
@@ -29,7 +30,7 @@ import { Partitioners } from "kafkajs";
               createPartitioner: Partitioners.LegacyPartitioner, // Используем старый разделитель
             },
             consumer: {
-              groupId: 'users-consumer',
+              groupId: 'users-consumer',// users-consumer-client
             },
           }
         }),
