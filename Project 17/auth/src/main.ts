@@ -14,9 +14,9 @@ async function bootstrap() {
     AppModule, {
       transport: Transport.KAFKA,
       options: {
-        // subscribe: {
-        //   fromBeginning: true
-        // },
+        subscribe: {
+          fromBeginning: true
+        },
         consumer: {
           groupId: 'auth-consumer',
         },

@@ -17,3 +17,4 @@
 - 15 - NestJS/NodeJS simple microservices with TCP transport
 - 16 - NestJS microservices monorepo with tRPC
 - 17 - NestJS microservices with Kafka
+- 18 - NestJS microservices monorepo with Kafka

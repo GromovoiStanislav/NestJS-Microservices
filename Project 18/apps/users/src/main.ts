@@ -17,7 +17,7 @@ async function bootstrap() {
           fromBeginning: true
         },
         consumer: {
-          groupId: 'billing-consumer',
+          groupId: 'users-consumer',
         },
         producer: {
           createPartitioner: Partitioners.LegacyPartitioner // Используем старый разделитель
@@ -34,7 +34,6 @@ async function bootstrap() {
       }
     }
   );
-
 
   await app.listen();
 }
