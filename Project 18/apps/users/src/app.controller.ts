@@ -16,7 +16,7 @@ export class AppController {
 
 
   @MessagePattern("GET_USERS") // "GET_USERS" topic
-  GET_USERS(@Payload() payload: any, @Ctx() context: KafkaContext) {
+  getUsers(@Payload() payload: any, @Ctx() context: KafkaContext) {
     this.logger.log(payload);
 
     console.log(`Topic: ${context.getTopic()}`);
@@ -32,7 +32,7 @@ export class AppController {
 
 
   @EventPattern("PRINT_USERS") //"PRINT_USERS" topic
-  Validate(@Payload() payload: any, @Ctx() context: KafkaContext) {
+  printUsers(@Payload() payload: any, @Ctx() context: KafkaContext) {
     this.logger.log(payload);
 
     console.log("PRINT_USERS",{
