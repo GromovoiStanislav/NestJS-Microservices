@@ -9,9 +9,6 @@ import {
 } from "@nestjs/microservices";
 
 
-
-
-
 @Controller()
 export class AppController {
 
@@ -24,10 +21,13 @@ export class AppController {
 
 
   @MessagePattern("GET_USERS") // "GET_USERS" topic
-  getUsers(@Payload() payload: any) {
+  getUsers(@Payload() payload: any, @Ctx() context: KafkaContext) {
     //this.logger.log(payload);
 
-    console.log("GET_USERS",{
+    const { headers } = context.getMessage();
+
+    console.log("GET_USERS", {
+      kafka_correlationId: headers.kafka_correlationId,
       message: payload.message,
       user: payload.user
     });
@@ -35,23 +35,32 @@ export class AppController {
     return {
       message: payload.message,
       user: payload.user
-    }
+    };
   }
 
 
-  @EventPattern("PRINT_USERS") //"PRINT_USERS" topic
-  printUsers(@Payload() payload: any, @Ctx() context: KafkaContext) {
+  @EventPattern("PRINT_USERS") // "PRINT_USERS" topic
+  printUsers(@Payload() payload: any) {
     //this.logger.log(payload);
 
-    console.log("PRINT_USERS",{
-      message: payload.message,
-      user: payload.user
+
+
+    const { correlationId, data: { message, user } } = payload;
+
+    console.log("PRINT_USERS", {
+      correlationId,
+      message,
+      user
     });
 
     this.userService.emit("PRINT_USERS.reply", {
-      message: payload.message,
-      user: payload.user
-    });
+        data: {
+          message,
+          user
+        },
+        correlationId
+      }
+    );
 
   }
 

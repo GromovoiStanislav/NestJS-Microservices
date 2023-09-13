@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Inject, Logger, OnModuleInit, Post } from "@nestjs/common";
-import { ClientKafka, EventPattern, Payload } from "@nestjs/microservices";
+import { ClientKafka, Ctx, EventPattern, KafkaContext, Payload } from "@nestjs/microservices";
 import { AppService } from "./app.service";
+import { randomUUID } from "node:crypto";
 
 
 @Controller()
@@ -34,8 +35,11 @@ export class AppController implements OnModuleInit {
   ) {
 
     this.userService.emit("PRINT_USERS", {
-      message,
-      user
+      correlationId: randomUUID(),
+      data: {
+        message,
+        user
+      }
     });
 
     this.userService.send("GET_USERS", {
@@ -48,23 +52,29 @@ export class AppController implements OnModuleInit {
     return "OK";
   }
 
-  @EventPattern("GET_USERS.reply") //"GET_USERS.reply" topic
-  getUsers(@Payload() payload: any) {
+  @EventPattern("GET_USERS.reply") // "GET_USERS.reply" topic
+  getUsers(@Payload() payload: any, @Ctx() context: KafkaContext) {
     //this.logger.log(payload);
 
+    const { headers } = context.getMessage();
+
     console.log("GET_USERS.reply", {
+      kafka_correlationId: headers.kafka_correlationId,
       message: payload.message,
       user: payload.user
     });
   }
 
-  @EventPattern("PRINT_USERS.reply") //"PRINT_USERS".reply topic
+  @EventPattern("PRINT_USERS.reply") // "PRINT_USERS".reply topic
   printUsers(@Payload() payload: any) {
     //this.logger.log(payload);
 
+    const { correlationId, data: { message, user } } = payload;
+
     console.log("PRINT_USERS.reply", {
-      message: payload.message,
-      user: payload.user
+      correlationId,
+      message,
+      user
     });
   }
 
