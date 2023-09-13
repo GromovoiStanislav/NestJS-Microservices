@@ -18,3 +18,4 @@
 - 16 - NestJS microservices monorepo with tRPC
 - 17 - NestJS microservices with Kafka
 - 18 - NestJS microservices monorepo with Kafka
+- 19 - NestJS microservices monorepo with Kafka 
