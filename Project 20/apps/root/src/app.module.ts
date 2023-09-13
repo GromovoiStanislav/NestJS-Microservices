@@ -10,6 +10,7 @@ import { Partitioners } from "kafkajs";
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
 
+    // 1-й способ
     ClientsModule.registerAsync([
       {
         name: "USERS_SERVICE",

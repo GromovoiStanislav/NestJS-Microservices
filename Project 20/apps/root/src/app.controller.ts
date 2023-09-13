@@ -3,17 +3,20 @@ import {Client, ClientKafka, Transport } from "@nestjs/microservices";
 import { AppService } from "./app.service";
 import { Partitioners } from "kafkajs";
 
+
 @Controller()
 export class AppController implements OnModuleInit {
 
   constructor(
     private readonly appService: AppService,
+    // 1-й способ
     //@Inject("USERS_SERVICE") private readonly userService: ClientKafka
   ) {
+
   }
 
 
-
+  // 2-й способ
   @Client({
     transport: Transport.KAFKA,
     options: {
