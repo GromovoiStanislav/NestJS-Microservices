@@ -1,8 +1,8 @@
 ## NestJS Microservices
 
 - 1 - NestJS project with microservices with API Gateway
-- 2 - NestJS microservices monorepo with RabbitMQ, MongoDB
-- 3 - NestJS project with microservices with RabbitMQ
+- 2 - NestJS microservices monorepo with RabbitMQ (with message acknowledgement), MongoDB
+- 3 - NestJS project with microservices with RabbitMQ (with message acknowledgement)
 - 4 - NestJS simple microservices with RabbitMQ
 - 5 - NestJS GraphQL microservices monorepo with Apollo Federation 2 (+Authentication)
 - 6 - NestJS microservices monorepo with Redis
@@ -20,3 +20,4 @@
 - 18 - NestJS microservices monorepo with Kafka
 - 19 - NestJS microservices monorepo with Kafka
 - 20 - NestJS microservices monorepo with Kafka (with commitOffsets)
+- 21 - NestJS microservices monorepo with RabbitMQ (with message acknowledgement)
