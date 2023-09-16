@@ -21,3 +21,4 @@
 - 19 - NestJS microservices monorepo with Kafka
 - 20 - NestJS microservices monorepo with Kafka (with commitOffsets)
 - 21 - NestJS microservices monorepo with RabbitMQ (with message acknowledgement)
+- 22 - NestJS microservices with Kafka
