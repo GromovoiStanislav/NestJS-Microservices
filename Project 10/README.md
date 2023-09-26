@@ -13,7 +13,7 @@ npm run start:dev apigateway
 npm run start:dev auth
 ```
 
-gen types:
+generate gRPC types:
 ```bash
 npm install ts-proto
 
