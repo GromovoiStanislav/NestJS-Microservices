@@ -12,3 +12,10 @@ edit nest-cli.json
 npm run start:dev apigateway
 npm run start:dev auth
 ```
+
+gen types:
+```bash
+npm install ts-proto
+
+protoc --plugin=protoc-gen-ts_proto=".\\node_modules\\.bin\\protoc-gen-ts_proto.cmd" --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/auth.proto
+```

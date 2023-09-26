@@ -77,21 +77,16 @@ export interface UsersServiceController {
 
 export function UsersServiceControllerMethods() {
   return function (constructor: Function) {
-
     const grpcMethods: string[] = ["createUser", "findAllUsers", "findOneUser", "updateUser", "removeUser"];
-
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("UsersService", method)(constructor.prototype[method], method, descriptor);
     }
-
     const grpcStreamMethods: string[] = ["queryUsers"];
-
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcStreamMethod("UsersService", method)(constructor.prototype[method], method, descriptor);
     }
-
   };
 }
 
