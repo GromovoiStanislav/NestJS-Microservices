@@ -1,5 +1,4 @@
 to generate gRPC types:
-
 ```bash
 npm i ts-proto@1.158.0
 

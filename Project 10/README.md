@@ -15,7 +15,7 @@ npm run start:dev auth
 
 generate gRPC types:
 ```bash
-npm install ts-proto
+npm install ts-proto@1.158.0
 
 protoc --plugin=protoc-gen-ts_proto=".\\node_modules\\.bin\\protoc-gen-ts_proto.cmd" --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/auth.proto
 ```

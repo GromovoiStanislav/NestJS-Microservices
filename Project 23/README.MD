@@ -1,3 +1,5 @@
+## Example of a gRPC microservice
+
 to generate gRPC types:
 
 ```bash

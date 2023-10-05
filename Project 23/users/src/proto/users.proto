@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package users;
+
+service UsersService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+  rpc GetUsers(Empty) returns (GetUsersResponse) {}
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {}
+}
+
+message Empty {
+}
+
+message GetUsersResponse {
+  repeated User users  = 1;
+}
+
+message GetUserRequest {
+  string email = 1;
+}
+
+message GetUserResponse {
+  bool found = 1;
+  User user = 2;
+}
+
+message User {
+  string name = 1;
+  string email = 2;
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+}
+
+message CreateUserResponse {
+  string name = 1;
+  string email = 2;
+}
