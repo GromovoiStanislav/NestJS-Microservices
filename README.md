@@ -23,3 +23,4 @@
 - 21 - NestJS microservices monorepo with RabbitMQ (with message acknowledgement)
 - 22 - NestJS microservices with Kafka (+nativ)
 - 23 - Example of a gRPC microservice
+- 24 - Example of a TCP microservice
