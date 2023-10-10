@@ -1,4 +1,4 @@
-## NestJS microservices  with Kafka
+## NestJS microservices with Kafka
 
 
 Topics:

@@ -36,7 +36,6 @@ export class PostsController implements  OnModuleInit {
 
   @Post('/')
   appPost(@Body() post: IPost) {
-    console.log(post)
     return this.client.send('add.new.post', post);
   }
 
