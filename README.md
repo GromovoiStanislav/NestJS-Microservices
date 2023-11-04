@@ -24,3 +24,4 @@
 - 22 - NestJS microservices with Kafka (+nativ)
 - 23 - Example of a gRPC microservice
 - 24 - Example of a TCP microservice
+- 25 - Example of a Redis microservice
