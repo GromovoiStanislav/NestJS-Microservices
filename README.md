@@ -25,3 +25,4 @@
 - 23 - Example of a gRPC microservice
 - 24 - Example of a TCP microservice
 - 25 - Example of a Redis microservice
+- 26 - Example of a RabbitMQ microservice
