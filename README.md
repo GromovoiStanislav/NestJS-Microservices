@@ -27,3 +27,4 @@
 - 25 - Example of a Redis microservice
 - 26 - Example of a RabbitMQ microservice
 - 27 - Example of a RabbitMQ microservice
+- 28 - Example of a NATS microservice
