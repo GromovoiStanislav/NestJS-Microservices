@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "05818f19-ca95-4025-bb5b-a1cc5c6de0b7",
+		"name": "RabbitMQ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26825414"
+	},
+	"item": [
+		{
+			"name": "cats",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "user_id",
+						"value": "111111",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"Brian\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/cats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"cats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

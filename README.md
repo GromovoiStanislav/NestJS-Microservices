@@ -26,3 +26,4 @@
 - 24 - Example of a TCP microservice
 - 25 - Example of a Redis microservice
 - 26 - Example of a RabbitMQ microservice
+- 27 - Example of a RabbitMQ microservice
