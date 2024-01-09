@@ -26,5 +26,6 @@
 - 24 - Example of a TCP microservice
 - 25 - Example of a Redis microservice
 - 26 - Example of a RabbitMQ microservice
-- 27 - Example of a RabbitMQ microservice
-- 28 - Example of a NATS microservice
+- 27 - NestJS Microservices with RabbitMQ
+- 28 - NestJS Microservices with NATS
+- 29 - NestJS Microservices with NATS
