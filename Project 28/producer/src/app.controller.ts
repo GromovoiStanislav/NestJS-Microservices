@@ -11,7 +11,7 @@ export class AppController {
 
   @Post("/cats")
   async sendCatData(@Body() body: Cat) {
-    return this.appService.getCatName(body.name);
+    return this.appService.getCatName(body);
   }
 
 

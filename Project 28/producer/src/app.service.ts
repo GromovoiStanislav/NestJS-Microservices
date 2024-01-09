@@ -1,6 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { ClientProxy, NatsRecordBuilder } from "@nestjs/microservices";
 import * as nats from "nats";
+import { Cat } from "./dto/cat.dto";
 
 @Injectable()
 export class AppService {
@@ -9,8 +10,8 @@ export class AppService {
   ) {
   }
 
-  async getCatName(name: string) {
-    // const message = await this.client.send({ cmd: "cats" }, name);
+  async getCatName(cat: Cat) {
+    // const message = await this.client.send({ cmd: "cats" }, cat.name);
     // return message;
 
 
@@ -18,7 +19,7 @@ export class AppService {
     // headers.set("x-version", "1.0.0");
     headers.set("x-token", "token");
 
-    const record = new NatsRecordBuilder(name).setHeaders(headers).build();
+    const record = new NatsRecordBuilder(cat).setHeaders(headers).build();
     return this.client.send("cats.get", record);
   }
 
