@@ -29,3 +29,4 @@
 - 27 - NestJS Microservices with RabbitMQ
 - 28 - NestJS Microservices with NATS
 - 29 - NestJS Microservices with NATS
+- 30 - NestJS Microservice with NATS and client native

@@ -1,0 +1,10 @@
+@api = http://localhost:3000/api
+
+
+### check hello
+POST {{api}}/hello
+
+
+### check notifications
+POST {{api}}/notification
+
