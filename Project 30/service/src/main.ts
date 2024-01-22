@@ -31,6 +31,6 @@ async function bootstrap() {
 
 
 
-  logger.log("Users Microservice is Running!");
+  logger.log("Hello Microservice is Running!");
 }
 bootstrap();

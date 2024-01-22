@@ -30,3 +30,4 @@
 - 28 - NestJS Microservices with NATS
 - 29 - NestJS Microservices with NATS
 - 30 - NestJS Microservice with NATS and client native
+- 31 - NestJS - simple microservices with TCP, NATS, Redis, RabbitMQ, Kafka

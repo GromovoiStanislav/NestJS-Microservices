@@ -1,0 +1,10 @@
+@api = http://localhost:3000
+
+
+### check greeting
+GET {{api}}/greeting
+
+
+### check greeting-async
+GET {{api}}/greeting-async
+
