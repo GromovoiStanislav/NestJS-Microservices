@@ -21,7 +21,7 @@ export class AppController {
   @Get("publish-event")
   async publishEvent() {
     this.appService.publishEvent();
-    return "OK"
+    return "OK";
   }
 
 

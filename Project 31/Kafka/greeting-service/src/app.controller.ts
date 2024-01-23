@@ -4,12 +4,12 @@ import { EventPattern, MessagePattern, Payload } from "@nestjs/microservices";
 @Controller()
 export class AppController {
 
-  @MessagePattern({cmd: 'greeting'})
+  @MessagePattern('greeting')
   getGreetingMessage(@Payload() name: string): string {
     return `Hello ${name}`;
   }
 
-  @MessagePattern({cmd: 'greeting-async'})
+  @MessagePattern('greeting-async')
   async getGreetingMessageAysnc(@Payload() name: string): Promise<string> {
     return `Hello ${name}`;
   }

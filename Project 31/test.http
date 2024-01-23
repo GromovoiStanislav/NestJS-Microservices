@@ -8,3 +8,7 @@ GET {{api}}/greeting
 ### check greeting-async
 GET {{api}}/greeting-async
 
+
+### check publish-event
+GET {{api}}/publish-event
+

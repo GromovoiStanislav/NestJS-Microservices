@@ -17,4 +17,12 @@ export class AppController {
   async getHelloAsync() {
     return this.appService.getHelloAsync();
   }
+
+  @Get("publish-event")
+  async publishEvent() {
+    this.appService.publishEvent();
+    return "OK"
+  }
+
+
 }
