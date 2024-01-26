@@ -2,8 +2,10 @@
 
 
 ###
-GET {{api}}/redis/Michael
+GET {{api}}/redis/Redis
 
 ### 
-GET {{api}}/tcp/Tom
+GET {{api}}/tcp/TCP
 
+### 
+GET {{api}}/nats/NATS

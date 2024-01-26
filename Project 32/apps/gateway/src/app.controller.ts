@@ -18,4 +18,9 @@ export class AppController {
   async tcpGetHello(@Param("name") name: string): Promise<string> {
     return await this.appService.tcpGetHello(name);
   }
+
+  @Get("nats/:name")
+  async natsGetHello(@Param("name") name: string): Promise<string> {
+    return await this.appService.natsGetHello(name);
+  }
 }

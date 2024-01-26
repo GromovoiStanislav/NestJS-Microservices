@@ -1,18 +1,16 @@
 import { Controller } from "@nestjs/common";
-import { RedisServiceService } from "./redis-service.service";
+import { NatsServiceService } from "./nats-service.service";
 import { MessagePattern, Payload } from "@nestjs/microservices";
 
 @Controller()
-export class RedisServiceController {
+export class NatsServiceController {
 
   constructor(
-    private readonly redisServiceService: RedisServiceService
-  ) {
-  }
+    private readonly natsServiceService: NatsServiceService
+  ) {}
 
   @MessagePattern({ cmd: "getHello" })
   getHello(@Payload() name: string): string {
-    return this.redisServiceService.getHello(name);
+    return this.natsServiceService.getHello(name);
   }
-
 }

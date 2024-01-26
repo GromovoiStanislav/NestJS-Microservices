@@ -10,7 +10,7 @@ export class TcpServiceController {
   ) {
   }
 
-  @MessagePattern("getHello")
+  @MessagePattern({ cmd: "getHello" })
   getHello(@Payload() name: string): string {
     return this.tcpServiceService.getHello(name);
   }

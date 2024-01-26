@@ -36,6 +36,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/tcp-service/tsconfig.app.json"
       }
+    },
+    "nats-service": {
+      "type": "application",
+      "root": "apps/nats-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/nats-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nats-service/tsconfig.app.json"
+      }
     }
   }
 }

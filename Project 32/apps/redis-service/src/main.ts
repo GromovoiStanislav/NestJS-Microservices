@@ -4,7 +4,7 @@ import { RedisServiceModule } from "./redis-service.module";
 import { Logger } from "@nestjs/common";
 
 async function bootstrap() {
-  const logger = new Logger("Main");
+  const logger = new Logger("REDIS");
 
   // @ts-ignore
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -20,6 +20,7 @@ async function bootstrap() {
     });
   await app.listen();
 
-  logger.log("REDIS Microservice is Running!");
+  logger.log("" +
+    "Microservice is Running!");
 }
 bootstrap();
