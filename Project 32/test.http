@@ -1,0 +1,9 @@
+@api = http://localhost:3000
+
+
+###
+GET {{api}}/redis/Michael
+
+### 
+GET {{api}}/tcp/Tom
+
