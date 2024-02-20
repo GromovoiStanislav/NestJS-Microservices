@@ -33,3 +33,4 @@
 - 31 - NestJS - simple microservices with TCP, NATS, Redis, RabbitMQ, Kafka
 - 32 - NestJS Microservices monorepo with TCP, Redis, NATS...
 - 33 - NestJS Microservices monorepo with gRPC (ts-proto)
+- 34 - NestJS microservice with Kafka simple example
