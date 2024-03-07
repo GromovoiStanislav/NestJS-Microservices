@@ -37,3 +37,4 @@
 - 35 - Example of a gRPC (ts-proto) microservice
 - 36 - NestJS + gRPC + Class Validator
 - 37 - Example of a gRPC (ts-proto) microservice
+- 38 - NestJS microservices with Kafka simple example
