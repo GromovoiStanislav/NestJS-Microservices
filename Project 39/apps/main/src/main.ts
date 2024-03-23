@@ -7,11 +7,11 @@ import { RmqService } from "@app/common";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const rmqService = app.get<RmqService>(RmqService);
-  app.connectMicroservice<RmqOptions>(rmqService.getOptions('MAIN', true));
+  //const rmqService = app.get<RmqService>(RmqService);
+  // app.connectMicroservice<RmqOptions>(rmqService.getOptions('MAIN', true));
+  // await app.startAllMicroservices();
 
   const configService = app.get(ConfigService);
-  await app.startAllMicroservices();
   await app.listen(configService.get('PORT'));
 }
 bootstrap();
