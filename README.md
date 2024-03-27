@@ -39,3 +39,4 @@
 - 37 - Example of a gRPC (ts-proto) microservice
 - 38 - NestJS microservices with Kafka simple example
 - 39 - NestJS Microservices monorepo with RabbitMQ and Common library
+- 40 - NestJS Microservices monorepo with kafka

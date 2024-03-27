@@ -1,0 +1,7 @@
+@api=http://localhost:3000
+
+###
+GET {{api}}
+
+###
+GET {{api}}/kafka-test
