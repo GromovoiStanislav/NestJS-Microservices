@@ -41,3 +41,4 @@
 - 39 - NestJS Microservices monorepo with RabbitMQ and Common library
 - 40 - NestJS Microservices monorepo with kafka
 - 41 - NestJS microservice with Kafka simple example
+- 42 - NestJS microservice with Kafka simple example
