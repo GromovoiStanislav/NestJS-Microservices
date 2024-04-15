@@ -43,3 +43,4 @@
 - 41 - NestJS microservice with Kafka simple example
 - 42 - NestJS microservice with Kafka simple example
 - 43 - NestJS microservices monorepo with Kafka and Prisma
+- 44 - NestJS with Kafka simple example

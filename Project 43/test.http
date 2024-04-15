@@ -1,18 +1,7 @@
-@orders_api=http://localhost:3000
-@payments_api=http://localhost:3001
-
 ###
-GET {{orders_api}}/orders
-
-###
-POST {{orders_api}}/orders
+POST http://localhost:3000
 Content-Type: application/json
 
 {
-    "client_id": 4656464,
-    "price": 200
+    "name": "John Doe"
 }
-
-
-###
-GET {{payments_api}}/payments

@@ -1,3 +1,4 @@
+import "dotenv/config"
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { PaymentsModule } from "./payments/payments.module";
