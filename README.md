@@ -26,19 +26,20 @@
 - 24 - Example of a TCP microservice
 - 25 - Example of a Redis microservice
 - 26 - Example of a RabbitMQ microservice
-- 27 - NestJS Microservices with RabbitMQ
-- 28 - NestJS Microservices with NATS
-- 29 - NestJS Microservices with NATS
-- 30 - NestJS Microservice with NATS and client native
-- 31 - NestJS - simple microservices with TCP, NATS, Redis, RabbitMQ, Kafka
-- 32 - NestJS Microservices monorepo with TCP, Redis, NATS...
-- 33 - NestJS Microservices monorepo with gRPC (ts-proto)
+- 27 - NestJS microservices with RabbitMQ
+- 28 - NestJS microservices with NATS
+- 29 - NestJS microservices with NATS
+- 30 - NestJS microservice with NATS and client native
+- 31 - NestJS simple microservices with TCP, NATS, Redis, RabbitMQ, Kafka
+- 33 - NestJS microservices monorepo with gRPC (ts-proto)
+- 32 - NestJS microservices monorepo with TCP, Redis, NATS...
 - 34 - NestJS microservice with Kafka simple example
 - 35 - Example of a gRPC (ts-proto) microservice
 - 36 - NestJS + gRPC + Class Validator
 - 37 - Example of a gRPC (ts-proto) microservice
 - 38 - NestJS microservices with Kafka simple example
-- 39 - NestJS Microservices monorepo with RabbitMQ and Common library
-- 40 - NestJS Microservices monorepo with kafka
+- 39 - NestJS microservices monorepo with RabbitMQ and Common library
+- 40 - NestJS microservices monorepo with kafka
 - 41 - NestJS microservice with Kafka simple example
 - 42 - NestJS microservice with Kafka simple example
+- 43 - NestJS microservices monorepo with Kafka and Prisma
