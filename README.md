@@ -45,3 +45,4 @@
 - 43 - NestJS microservices monorepo with Kafka and Prisma
 - 44 - NestJS with Kafka simple example
 - 45 - NestJS with Kafka simple implementation
+- 46 - NestJS with Kafka simple implementation and Sequelize
