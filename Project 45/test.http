@@ -1,0 +1,8 @@
+###
+POST http://localhost:3000/test-kafka
+Content-Type: application/json
+
+{
+    "name": "Wesley",
+    "BTC": "10"
+}
