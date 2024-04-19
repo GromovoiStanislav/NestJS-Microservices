@@ -46,3 +46,4 @@
 - 44 - NestJS with Kafka simple example
 - 45 - NestJS with Kafka simple implementation
 - 46 - NestJS with Kafka simple implementation and Sequelize
+- 47 - NestJS with Kafka simple implementation and Sequelize

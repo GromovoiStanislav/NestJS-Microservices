@@ -1,0 +1,32 @@
+GET http://localhost:3000/orders
+
+###
+GET http://localhost:3000/orders/28876d6b-d5de-4f26-8427-f11671539961
+
+###
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "amount": 100
+}
+
+###
+PATCH http://localhost:3000/orders/28876d6b-d5de-4f26-8427-f11671539961
+Content-Type: application/json
+
+{
+    "amount": 200
+}
+
+###
+DELETE http://localhost:3000/orders/28876d6b-d5de-4f26-8427-f11671539961
+
+###
+POST http://localhost:3000/orders/producer
+Content-Type: application/json
+
+{
+    "name": "luiz carlos",
+    "evento": "imersão full cycle"
+}
