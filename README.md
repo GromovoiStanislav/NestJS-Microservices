@@ -47,4 +47,5 @@
 - 45 - NestJS with Kafka simple implementation
 - 46 - NestJS with Kafka simple implementation and Sequelize
 - 47 - NestJS with Kafka simple implementation and Sequelize
-- 48 - NestJS Microservices with RabbitMQ
+- 48 - NestJS Microservices with RabbitMQ simple example
+- 49 - NestJS Microservices with Kafka simple example
