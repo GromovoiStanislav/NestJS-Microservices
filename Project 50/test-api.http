@@ -25,9 +25,9 @@ Content-Type: application/json
 }
 
 
-
 ###
 DELETE http://localhost:3000/products/3
+
 
 
 ###
@@ -42,3 +42,7 @@ Content-Type: application/json
     "name": "Product #21",
     "price": 200
 }
+
+
+###
+GET http://localhost:3000/product-grpc-clients/5
