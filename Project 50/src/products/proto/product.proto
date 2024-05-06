@@ -13,8 +13,6 @@ service ProductService {
 }
 
 
-
-
 message ProductIdRequest{
   int32 id = 1;
 }

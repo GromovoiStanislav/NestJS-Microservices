@@ -45,4 +45,13 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/product-grpc-clients/5
+GET http://localhost:3000/product-grpc-clients/1
+
+
+###
+PATCH   http://localhost:3000/product-grpc-clients/1
+Content-Type: application/json
+
+{
+  "price": 300
+}
