@@ -1,1 +1,1 @@
-## NestJS with gRPC and TypeORM
+## NestJS with gRPC, Kafka and TypeORM
