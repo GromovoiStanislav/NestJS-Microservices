@@ -1,18 +1,34 @@
 import { Body, Controller, Inject, OnModuleInit, Post } from "@nestjs/common";
 import { Producer } from "@nestjs/microservices/external/kafka.interface";
 import { CreateOrderDto } from "./dto/create-order.dto";
-import { ClientKafka } from "@nestjs/microservices";
+import { Client, ClientKafka, Transport } from "@nestjs/microservices";
 import { firstValueFrom } from "rxjs";
 
 @Controller("kafka-producers")
 export class KafkaProducerController implements OnModuleInit {
 
-  constructor(
-    @Inject("KAFKA_PRODUCER") private kafkaProducer: ClientKafka
+  // constructor(
+  //   @Inject("KAFKA_PRODUCER")  private readonly kafkaProducer: ClientKafka
+  //   //@Inject("KAFKA_PRODUCER") private readonly userService: Producer
+  // ) {
+  // }
 
-    //@Inject("KAFKA_PRODUCER") private readonly userService: Producer
-  ) {
-  }
+
+  @Client({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [process.env.KAFKA_HOSTNAME],
+        ssl: true,
+        sasl: {
+          mechanism: "scram-sha-256",
+          username: process.env.KAFKA_USERNAME,
+          password: process.env.KAFKA_PASSWORD
+        }
+      },
+    }
+  })
+  kafkaProducer: ClientKafka;
 
 
   async onModuleInit() {
@@ -33,16 +49,16 @@ export class KafkaProducerController implements OnModuleInit {
     //   ]
     // });
 
-    return this.kafkaProducer.send(
-        "createOrder",
-        data
-      );
-
-    // return firstValueFrom(this.kafkaProducer.send(
-    //   "createOrder",
+    // return this.kafkaProducer.send(
+    //     "createOrder",
     //     data
-    //   )
-    // );
+    //   );
+
+    return firstValueFrom(this.kafkaProducer.send(
+      "createOrder",
+        data
+      )
+    );
   }
 
 }
