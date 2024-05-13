@@ -1,0 +1,10 @@
+
+###
+POST http://localhost:3000/kafka-publish
+Content-Type: application/json
+
+{
+    "name": "Product #1",
+    "price": 200
+}
+

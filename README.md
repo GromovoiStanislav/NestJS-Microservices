@@ -50,3 +50,4 @@
 - 48 - NestJS Microservices with RabbitMQ simple example
 - 49 - NestJS Microservices with Kafka simple example
 - 50 - NestJS with gRPC, Kafka and TypeORM
+- 51 - NestJS with Kafka simple example
