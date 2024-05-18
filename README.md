@@ -51,3 +51,4 @@
 - 49 - NestJS Microservices with Kafka simple example
 - 50 - NestJS with gRPC, Kafka and TypeORM
 - 51 - NestJS with Kafka simple example
+- 52 - NestJS microservices with Kafka
